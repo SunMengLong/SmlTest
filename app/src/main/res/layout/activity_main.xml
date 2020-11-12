@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/util_but"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="工具类"
+        android:textAllCaps="false"></Button>
+
+    <Button
+        android:id="@+id/popubwindow_but"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="PopupWindow"
+        android:textAllCaps="false"></Button>
+
+    <Button
+        android:id="@+id/alpha_breath_but"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="呼吸动画"
+        android:textAllCaps="false"></Button>
+
+    <Button
+        android:id="@+id/refrush_but"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="下拉刷新"
+        android:textAllCaps="false"></Button>
+
+    <Button
+        android:id="@+id/apng_but"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="APng动图播放"
+        android:textAllCaps="false"></Button>
+</LinearLayout>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.jwenfeng.library.pulltorefresh.PullToRefreshLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/pull_refrush_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- 内容控件 有且只能有一个 -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:text="11111"
+            android:textSize="50sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"></TextView>
+
+    </ScrollView>
+
+</com.jwenfeng.library.pulltorefresh.PullToRefreshLayout>
