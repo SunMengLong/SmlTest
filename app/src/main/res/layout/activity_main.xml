@@ -41,4 +41,25 @@
         android:layout_height="wrap_content"
         android:text="APng动图播放"
         android:textAllCaps="false"></Button>
+
+    <Button
+        android:id="@+id/sw_but"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="声网语音通话"
+        android:textAllCaps="false"></Button>
+
+    <Button
+        android:id="@+id/alert_window_but"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="全局弹框"
+        android:textAllCaps="false"></Button>
+
+    <Button
+        android:id="@+id/notify_but"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="通知"
+        android:textAllCaps="false"></Button>
 </LinearLayout>

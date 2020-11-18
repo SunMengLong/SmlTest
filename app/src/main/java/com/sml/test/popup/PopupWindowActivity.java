@@ -1,6 +1,7 @@
 package com.sml.test.popup;
 
 import android.app.Activity;
+import android.app.NotificationManager;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -28,6 +29,10 @@ public class PopupWindowActivity extends Activity {
                 showPopupWindow();
             }
         });
+
+
+        NotificationManager manager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+        manager.cancel(1);
     }
 
     private void showPopupWindow() {

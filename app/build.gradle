@@ -31,8 +31,12 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
     compile 'com.github.bumptech.glide:glide:3.7.0'
 
+    //下拉刷新
     implementation 'com.jwenfeng.pulltorefresh:library:1.0.3'
 
-    //加载apng图片框架
+    //加载apng图片
     implementation 'com.github.penfeizhou.android.animation:apng:2.4.2'
+
+    //声网
+    implementation 'io.agora.rtc:voice-sdk:3.0.1'
 }

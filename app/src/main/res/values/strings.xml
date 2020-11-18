@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">SmlTest</string>
+    <string name="agora_app_id">f9f9cbf0cdc9488c8406fbf90be5b382</string>
+    <string name="agora_access_token">006f9f9cbf0cdc9488c8406fbf90be5b382IAAD6yXNA7gB20mvEocL4PHItUfqjPNKk5FYmwyK7Bvd6o5+m5YAAAAAEABID2UqJeC0XwEAAQAl4LRf</string>
 </resources>
