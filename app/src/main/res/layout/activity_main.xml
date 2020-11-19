@@ -62,4 +62,11 @@
         android:layout_height="wrap_content"
         android:text="通知"
         android:textAllCaps="false"></Button>
+
+    <Button
+        android:id="@+id/save_activity_state_but"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="保存activity状态"
+        android:textAllCaps="false"></Button>
 </LinearLayout>

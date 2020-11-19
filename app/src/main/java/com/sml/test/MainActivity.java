@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import androidx.core.app.NotificationCompat;
 
+import com.sml.test.activity.SaveStateActivity;
 import com.sml.test.animator.AlphaBreathActivity;
 import com.sml.test.apng.APngActivity;
 import com.sml.test.notify.NotifyActivity;
@@ -98,28 +99,13 @@ public class MainActivity extends Activity {
                 startActivity(view);
             }
         });
-    }
 
-//    @Override
-//    protected void onPause() {
-//        super.onPause();
-//        findViewById(R.id.notify_but).postDelayed(new Runnable() {
-//            @Override
-//            public void run() {
-//                Log.i("smllll", "run: 通知");
-//                NotificationManager manager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-//                Notification notification = new NotificationCompat.Builder(MainActivity.this)
-//                        .setContentTitle("这是测试通知标题")  //设置标题
-//                        .setContentText("这是测试通知内容") //设置内容
-//                        .setWhen(System.currentTimeMillis())  //设置时间
-//                        .setSmallIcon(R.mipmap.ic_launcher)  //设置小图标
-//                        .setLargeIcon(BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher))   //设置大图标
-//                        .setDefaults(Notification.DEFAULT_ALL)
-//                        .setPriority(NotificationCompat.PRIORITY_MAX)
-//                        .build();
-//
-//                manager.notify(1, notification);
-//            }
-//        }, 2000);
-//    }
+        findViewById(R.id.save_activity_state_but).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent view = new Intent(MainActivity.this, SaveStateActivity.class);
+                startActivity(view);
+            }
+        });
+    }
 }
