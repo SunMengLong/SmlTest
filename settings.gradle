@@ -1,3 +1,5 @@
+include ':log'
+include ':test'
 include ':apng'
 include ':app'
 rootProject.name = "SmlTest"
