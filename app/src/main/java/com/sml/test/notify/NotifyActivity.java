@@ -3,6 +3,7 @@ package com.sml.test.notify;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
 
+import android.app.Activity;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -19,7 +20,7 @@ import com.sml.test.popup.PopupWindowActivity;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
-public class NotifyActivity extends AppCompatActivity {
+public class NotifyActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,18 +58,20 @@ public class NotifyActivity extends AppCompatActivity {
      */
     public void sendNotifyShowTopDialog(View view) {
 
-        Intent intent = new Intent(this, PopupWindowActivity.class);
+        Context context = getApplication();
 
-        NotificationManager manager = (NotificationManager) getSystemService(Context
+        Intent intent = new Intent(context, PopupWindowActivity.class);
+
+        NotificationManager manager = (NotificationManager) context.getSystemService(Context
                 .NOTIFICATION_SERVICE);
         if (manager == null) return;
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
             NotificationChannel channel =
-                    new NotificationChannel("huawei", "huawei", NotificationManager.IMPORTANCE_MIN);
+                    new NotificationChannel("huawei", "huawei", NotificationManager.IMPORTANCE_HIGH);
             manager.createNotificationChannel(channel);
         }
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, "huawei");
-        PendingIntent pendingIntent = PendingIntent.getActivity(this, (int) 1, intent,
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(context, "huawei");
+        PendingIntent pendingIntent = PendingIntent.getActivity(context, (int) 1, intent,
                 PendingIntent.FLAG_UPDATE_CURRENT);
 
         Notification notification = builder
@@ -81,8 +84,8 @@ public class NotifyActivity extends AppCompatActivity {
                 .setPriority(NotificationCompat.PRIORITY_HIGH) //重要程度
                 .setDefaults(Notification.DEFAULT_SOUND | Notification.DEFAULT_VIBRATE)
                 .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
-                .setNumber(40)
-                .setGroup(String.valueOf(1))
+//                .setNumber(40)
+//                .setGroup(String.valueOf(1))
                 .setDefaults(NotificationCompat.DEFAULT_ALL)
                 .build();
         if (Build.MANUFACTURER.equalsIgnoreCase("Xiaomi")) {
@@ -96,5 +99,12 @@ public class NotifyActivity extends AppCompatActivity {
             }
         }
         manager.notify((int) 1, notification);
+    }
+
+    @Override
+    protected void onUserLeaveHint() {
+        super.onUserLeaveHint();
+        sendNotifyShowTopDialog(null);
+        finish();
     }
 }

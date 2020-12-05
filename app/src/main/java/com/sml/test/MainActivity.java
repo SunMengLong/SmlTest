@@ -3,20 +3,13 @@ package com.sml.test;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.app.Notification;
-import android.app.NotificationManager;
 import android.content.Intent;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.Toast;
 
-import androidx.core.app.NotificationCompat;
-
-import com.sml.test.activity.SaveStateActivity;
 import com.sml.test.animator.AlphaBreathActivity;
 import com.sml.test.apng.APngActivity;
+import com.sml.test.bottomsheetbehavior.BottomSheetBehaviorActivity;
 import com.sml.test.notify.NotifyActivity;
 import com.sml.test.popup.AlertWindowActivity;
 import com.sml.test.popup.PopupWindowActivity;
@@ -100,10 +93,10 @@ public class MainActivity extends Activity {
             }
         });
 
-        findViewById(R.id.save_activity_state_but).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.bottom_sheet_behavior_state_but).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent view = new Intent(MainActivity.this, SaveStateActivity.class);
+                Intent view = new Intent(MainActivity.this, BottomSheetBehaviorActivity.class);
                 startActivity(view);
             }
         });

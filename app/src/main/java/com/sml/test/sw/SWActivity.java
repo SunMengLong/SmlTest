@@ -61,7 +61,7 @@ public class SWActivity extends AppCompatActivity {
 
         Log.i("smlllll", "joinChannel: 。。。加入频道");
         // 调用 Agora SDK 的 joinChannel 方法加入频道。未指定 uid，SDK 会自动分配一个。
-        mRtcEngine.joinChannel(accessToken, "CHANNEL1", "Extra Optional Data", 0);
+        mRtcEngine.joinChannel(accessToken, "Channel3", "Extra Optional Data", 0);
     }
 
     private RtcEngine mRtcEngine;
@@ -73,6 +73,8 @@ public class SWActivity extends AppCompatActivity {
             runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
+                    mRtcEngine.leaveChannel();
+                    finish();
                     Log.i("smlllll", "run: ....对方离开频道。。。。");
 //                    onRemoteUserLeft(uid, reason);
                 }
@@ -89,6 +91,30 @@ public class SWActivity extends AppCompatActivity {
 //                    onRemoteUserVoiceMuted(uid, muted);
                 }
             });
+        }
+
+        @Override
+        public void onUserJoined(int i, int i1) {
+            super.onUserJoined(i, i1);
+            Log.i("smlllll", "run: ....对方加入频道。。。。");
+        }
+
+        @Override
+        public void onLeaveChannel(RtcStats rtcStats) {
+            super.onLeaveChannel(rtcStats);
+            Log.i("smlllll", "onLeaveChannel: 离开频道。。。。。。");
+        }
+
+        @Override
+        public void onJoinChannelSuccess(String s, int i, int i1) {
+            super.onJoinChannelSuccess(s, i, i1);
+            Log.i("smlllll", "joinChannel: 。。。加入频道   成功....");
+        }
+
+        @Override
+        public void onError(int i) {
+            super.onError(i);
+            Log.i("smllllllll", "onError: ...."+i);
         }
     };
 
@@ -127,5 +153,6 @@ public class SWActivity extends AppCompatActivity {
      */
     public void onEncCallClicked(View view) {
         mRtcEngine.leaveChannel();
+        finish();
     }
 }
