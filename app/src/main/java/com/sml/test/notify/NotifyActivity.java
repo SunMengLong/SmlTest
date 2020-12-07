@@ -58,34 +58,32 @@ public class NotifyActivity extends Activity {
      */
     public void sendNotifyShowTopDialog(View view) {
 
-        Context context = getApplication();
+        show(getApplication(), PopupWindowActivity.class, 1, "huawei", false, "这是测试通知标题", "这是测试通知内容");
+    }
 
-        Intent intent = new Intent(context, PopupWindowActivity.class);
-
-        NotificationManager manager = (NotificationManager) context.getSystemService(Context
-                .NOTIFICATION_SERVICE);
+    private void show(Context context, Class intentActivityClass, int notifyId, String channelName, boolean isShowFloatDialog, String notifyTitle, String notifyContent) {
+        //通知管理类
+        NotificationManager manager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
         if (manager == null) return;
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-            NotificationChannel channel =
-                    new NotificationChannel("huawei", "huawei", NotificationManager.IMPORTANCE_HIGH);
+        //Android O(8.0) 版本要求设置渠道
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            NotificationChannel channel = new NotificationChannel(channelName, channelName, isShowFloatDialog ? NotificationManager.IMPORTANCE_HIGH : NotificationManager.IMPORTANCE_LOW);
             manager.createNotificationChannel(channel);
         }
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(context, "huawei");
-        PendingIntent pendingIntent = PendingIntent.getActivity(context, (int) 1, intent,
-                PendingIntent.FLAG_UPDATE_CURRENT);
+        //点击通知跳转界面
+        Intent intent = new Intent(context, intentActivityClass);
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(context, channelName);
+        PendingIntent pendingIntent = PendingIntent.getActivity(context, notifyId, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 
         Notification notification = builder
                 .setSmallIcon(R.mipmap.ic_launcher)
-                .setContentText("这是测试通知内容")
-//                .setTicker(tickerText)
-                .setContentTitle("这是测试通知标题")
+                .setContentText(notifyContent)
+                .setContentTitle(notifyTitle)
                 .setContentIntent(pendingIntent)
                 .setAutoCancel(true)
-                .setPriority(NotificationCompat.PRIORITY_HIGH) //重要程度
+                .setPriority(isShowFloatDialog ? NotificationCompat.PRIORITY_HIGH : NotificationCompat.PRIORITY_MIN) //重要程度
                 .setDefaults(Notification.DEFAULT_SOUND | Notification.DEFAULT_VIBRATE)
                 .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
-//                .setNumber(40)
-//                .setGroup(String.valueOf(1))
                 .setDefaults(NotificationCompat.DEFAULT_ALL)
                 .build();
         if (Build.MANUFACTURER.equalsIgnoreCase("Xiaomi")) {
@@ -98,7 +96,7 @@ public class NotifyActivity extends Activity {
                 e.printStackTrace();
             }
         }
-        manager.notify((int) 1, notification);
+        manager.notify(notifyId, notification);
     }
 
     @Override

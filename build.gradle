@@ -19,18 +19,6 @@ allprojects {
         jcenter()
         maven { url 'https://jitpack.io' }
     }
-
-    configurations.all {
-        resolutionStrategy {
-            dependencySubstitution {
-//                substitute module('com.github.penfeizhou.android.animation:frameanimation') with project(":frameanimation")
-                substitute module('com.github.SunMengLong:SmlTest:apng') with project(":apng")
-//                substitute module('com.github.penfeizhou.android.animation:awebp') with project(":awebp")
-//                substitute module('com.github.penfeizhou.android.animation:gif') with project(":gif")
-//                substitute module('com.github.penfeizhou.android.animation:glide-plugin') with project(":plugin_glide")
-            }
-        }
-    }
 }
 
 task clean(type: Delete) {
