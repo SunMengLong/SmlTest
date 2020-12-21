@@ -69,4 +69,11 @@
         android:layout_height="wrap_content"
         android:text="BottomSheetBehavior"
         android:textAllCaps="false"></Button>
+
+    <Button
+        android:id="@+id/at_friend_but"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="at好友"
+        android:textAllCaps="false"></Button>
 </LinearLayout>

@@ -5,17 +5,21 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import com.sml.test.animator.AlphaBreathActivity;
 import com.sml.test.apng.APngActivity;
 import com.sml.test.bottomsheetbehavior.BottomSheetBehaviorActivity;
+import com.sml.test.edit.EditTextActivity;
 import com.sml.test.notify.NotifyActivity;
 import com.sml.test.popup.AlertWindowActivity;
 import com.sml.test.popup.PopupWindowActivity;
 import com.sml.test.refrush.ListRefrushActivity;
 import com.sml.test.sw.SWActivity;
 import com.sml.test.util.UtilActivity;
+
+import java.util.IdentityHashMap;
 
 public class MainActivity extends Activity {
 
@@ -97,6 +101,14 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View v) {
                 Intent view = new Intent(MainActivity.this, BottomSheetBehaviorActivity.class);
+                startActivity(view);
+            }
+        });
+
+        findViewById(R.id.at_friend_but).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent view = new Intent(MainActivity.this, EditTextActivity.class);
                 startActivity(view);
             }
         });
