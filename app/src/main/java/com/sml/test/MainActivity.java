@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
+import com.sml.test.a_z.AZListActivity;
 import com.sml.test.animator.AlphaBreathActivity;
 import com.sml.test.apng.APngActivity;
 import com.sml.test.bottomsheetbehavior.BottomSheetBehaviorActivity;
@@ -109,6 +110,14 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View v) {
                 Intent view = new Intent(MainActivity.this, EditTextActivity.class);
+                startActivity(view);
+            }
+        });
+
+        findViewById(R.id.a_z_list_but).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent view = new Intent(MainActivity.this, AZListActivity.class);
                 startActivity(view);
             }
         });
