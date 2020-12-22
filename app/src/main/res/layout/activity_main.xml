@@ -15,10 +15,10 @@
         android:textAllCaps="false"></Button>
 
     <Button
-        android:id="@+id/popubwindow_but"
+        android:id="@+id/dialog_but"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="PopupWindow"
+        android:text="Dialog"
         android:textAllCaps="false"></Button>
 
     <Button

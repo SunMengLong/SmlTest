@@ -24,7 +24,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".a_z.AZListActivity"></activity>
+        <activity android:name=".popup.DialogActivity"></activity>
+        <activity android:name=".a_z.AZListActivity" />
         <activity android:name=".bottomsheetbehavior.BottomSheetBehaviorActivity" />
         <activity
             android:name=".notify.NotifyActivity"
@@ -36,6 +37,7 @@
         <activity android:name=".refrush.ListRefrushActivity" />
         <activity android:name=".animator.AlphaBreathActivity" />
         <activity android:name=".popup.PopupWindowActivity" />
+        <activity android:name=".popup.AdapterDialogXYActivity" />
         <activity android:name=".edit.EditTextActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>

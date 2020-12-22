@@ -21,6 +21,9 @@ import com.sml.test.R;
 import com.sml.test.app.MyApplication;
 import com.sml.test.notify.NotifyActivity;
 
+/**
+ * 全局弹框
+ */
 public class AlertWindowActivity extends AppCompatActivity {
 
     private WindowManager wm;

@@ -2,7 +2,7 @@ package com.sml.test.a_z;
 
 public class Content implements Comparable<Content> {
 
-    private boolean isShowIndex;
+    private boolean isShowIndex = false;
 
     private String name;
 

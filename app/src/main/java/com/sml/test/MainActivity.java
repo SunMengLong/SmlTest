@@ -15,6 +15,7 @@ import com.sml.test.bottomsheetbehavior.BottomSheetBehaviorActivity;
 import com.sml.test.edit.EditTextActivity;
 import com.sml.test.notify.NotifyActivity;
 import com.sml.test.popup.AlertWindowActivity;
+import com.sml.test.popup.DialogActivity;
 import com.sml.test.popup.PopupWindowActivity;
 import com.sml.test.refrush.ListRefrushActivity;
 import com.sml.test.sw.SWActivity;
@@ -42,10 +43,10 @@ public class MainActivity extends Activity {
             }
         });
 
-        findViewById(R.id.popubwindow_but).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.dialog_but).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent view = new Intent(MainActivity.this, PopupWindowActivity.class);
+                Intent view = new Intent(MainActivity.this, DialogActivity.class);
                 startActivity(view);
             }
         });
@@ -78,14 +79,6 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View v) {
                 Intent view = new Intent(MainActivity.this, SWActivity.class);
-                startActivity(view);
-            }
-        });
-
-        findViewById(R.id.alert_window_but).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent view = new Intent(MainActivity.this, AlertWindowActivity.class);
                 startActivity(view);
             }
         });

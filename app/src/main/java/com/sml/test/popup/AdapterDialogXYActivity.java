@@ -15,9 +15,9 @@ import com.sml.test.R;
 import com.sml.test.util.ScreenUtils;
 
 /**
- * 自适应弹框-根据点击view位置
+ * 自适应弹框-根据传入坐标点（view的右上角坐标点）
  */
-public class PopupWindowActivity extends Activity {
+public class AdapterDialogXYActivity extends Activity {
 
     private ImageView butShowPopupwindow;
 
@@ -32,10 +32,6 @@ public class PopupWindowActivity extends Activity {
                 showPopupWindow();
             }
         });
-
-
-        NotificationManager manager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-        manager.cancel(1);
     }
 
     private void showPopupWindow() {

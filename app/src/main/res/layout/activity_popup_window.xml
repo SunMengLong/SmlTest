@@ -10,8 +10,8 @@
         android:id="@+id/but_show_popupwindow"
         android:layout_width="18dp"
         android:layout_height="18dp"
+        android:layout_marginLeft="300dp"
         android:layout_marginTop="30dp"
-        android:layout_marginLeft="50dp"
         android:src="@mipmap/story_permission_friend_tag_icon"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"></ImageView>
