@@ -28,6 +28,8 @@ public class SlideBar extends View {
     private RecyclerView recyclerView; //与之绑定的RecyclerView
     List<Content> data; //内容集合
     private Map<Integer, Integer> positionAB = new HashMap<>(); //存储右侧导航列表与名称列表position对应关系
+    private Map<Integer, Integer> yS = new HashMap<>(); //存储每一个字母的y轴坐标
+    private int singleHeight; //每个字母占的高度
 
     public void bindViewAndData(RecyclerView recyclerView, List<Content> data) {
         this.recyclerView = recyclerView;
@@ -71,7 +73,8 @@ public class SlideBar extends View {
         }
         int height = getHeight();
         int width = getWidth();
-        int singleHeight = (height - 20) / BAR_LETTERS.length;//每个字母占得高度
+        //每个字母占得高度
+        singleHeight = (height - 20) / BAR_LETTERS.length;
         for (int i = 0; i < BAR_LETTERS.length; i++) {//遍历字母
             paint.setColor(Color.GRAY);
             paint.setTextSize(30);
@@ -86,6 +89,7 @@ public class SlideBar extends View {
             float ypos = singleHeight * i + singleHeight;//y轴 （i从0开始算）
             canvas.drawText(BAR_LETTERS[i], xpos, ypos, paint);//开始绘制
             paint.reset();//重置画笔
+            yS.put(i, (int) ypos);
         }
     }
 
@@ -99,7 +103,7 @@ public class SlideBar extends View {
             case MotionEvent.ACTION_DOWN:
                 isShowBkg = true;
                 if (oldSelectIndex != newSelectIndex
-                        && newSelectIndex >= 0 && newSelectIndex <= BAR_LETTERS.length) {
+                        && newSelectIndex >= 0 && newSelectIndex < BAR_LETTERS.length) {
                     onTouchLetterChange(BAR_LETTERS[newSelectIndex], true, newSelectIndex);//注册点击事件并传入字母
                     oldSelectIndex = newSelectIndex;
                     selectIndex = newSelectIndex;
@@ -107,14 +111,17 @@ public class SlideBar extends View {
                 }
                 break;
             case MotionEvent.ACTION_UP:
-                isShowBkg = false;
-                selectIndex = -1;
-                invalidate();
-                onTouchLetterChange(BAR_LETTERS[newSelectIndex], false, newSelectIndex);//注册点击事件并传入字母
+                if (newSelectIndex >= 0 && newSelectIndex < BAR_LETTERS.length) {
+                    isShowBkg = false;
+                    IndexDialog.getInstance().dismissDialog();
+                    selectIndex = -1;
+                    invalidate();
+                    onTouchLetterChange(BAR_LETTERS[newSelectIndex], false, newSelectIndex);//注册点击事件并传入字母
+                }
                 break;
             case MotionEvent.ACTION_MOVE:
                 if (oldSelectIndex != newSelectIndex
-                        && newSelectIndex >= 0 && newSelectIndex <= BAR_LETTERS.length) {
+                        && newSelectIndex >= 0 && newSelectIndex < BAR_LETTERS.length) {
                     onTouchLetterChange(BAR_LETTERS[newSelectIndex], true, newSelectIndex);//注册点击事件并传入字母
                     oldSelectIndex = newSelectIndex;
                     selectIndex = newSelectIndex;
@@ -127,14 +134,15 @@ public class SlideBar extends View {
 
     public void onTouchLetterChange(String letter, boolean touch, int position) {
         if (touch) {
-            position = positionAB.get(position);
-            if (position == -1) {
+            IndexDialog.getInstance().showPopupWindow(getContext(), this, yS.get(position), BAR_LETTERS[position]);
+            int scrollTo = positionAB.get(position);
+            if (scrollTo == -1) {
                 return;
             }
-            recyclerView.scrollToPosition(position);
+            recyclerView.scrollToPosition(scrollTo);
             LinearLayoutManager mLayoutManager =
                     (LinearLayoutManager) recyclerView.getLayoutManager();
-            mLayoutManager.scrollToPositionWithOffset(position, 0);
+            mLayoutManager.scrollToPositionWithOffset(scrollTo, 0);
         }
     }
 }

@@ -9,7 +9,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.sml.test.R;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class AZListActivity extends Activity {

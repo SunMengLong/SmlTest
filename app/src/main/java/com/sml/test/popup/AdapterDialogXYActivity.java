@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.NotificationManager;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -48,45 +49,27 @@ public class AdapterDialogXYActivity extends Activity {
         int windowPos[] = calculatePopWindowPos(butShowPopupwindow, contentView);
         int xOff = 0;// 可以自己调整偏移
         windowPos[0] -= xOff;
-        popupWindow.showAtLocation(butShowPopupwindow, Gravity.TOP | Gravity.START, windowPos[0], windowPos[1]);
+        popupWindow.showAtLocation(butShowPopupwindow, Gravity.LEFT | Gravity.TOP, windowPos[0], windowPos[1]);
+//        popupWindow.showAtLocation(butShowPopupwindow, Gravity.LEFT | Gravity.TOP, 0, 0);
 // windowContentViewRoot是根布局View
     }
 
     /**
      * 计算出来的位置，y方向就在anchorView的上面和下面对齐显示，x方向就是与屏幕右边对齐显示
      * 如果anchorView的位置有变化，就可以适当自己额外加入偏移来修正
-     *
-     * @param anchorView  呼出window的view
-     * @param contentView window的内容布局
-     * @return window显示的左上角的xOff, yOff坐标
      */
-    private int[] calculatePopWindowPos(final View anchorView, final View contentView) {
-        final int windowPos[] = new int[2];
+    private int[] calculatePopWindowPos(final View slideBarView, final View dialogView) {
+        final int showDialogXY[] = new int[2];
+
         final int anchorLoc[] = new int[2];
         // 获取锚点View在屏幕上的左上角坐标位置
-        anchorView.getLocationOnScreen(anchorLoc);
-        final int anchorWidth = anchorView.getWidth();
-        final int anchorHeight = anchorView.getHeight();
-        // 获取屏幕的高宽
-        final int screenHeight = ScreenUtils.getScreenHeight(anchorView.getContext());
-        final int screenWidth = ScreenUtils.getScreenWidth(anchorView.getContext());
-        contentView.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED);
-        // 计算contentView的高宽
-        final int windowHeight = contentView.getMeasuredHeight();
-        final int windowWidth = contentView.getMeasuredWidth();
-        // 判断需要向上弹出还是向下弹出显示
-//        final boolean isNeedShowUp = (screenHeight - anchorLoc[1] - anchorHeight < windowHeight);
-        final boolean isNeedShowUp = (anchorLoc[1] - ScreenUtils.getStatusBarHeight(this) > windowHeight);
+        slideBarView.getLocationOnScreen(anchorLoc);
 
-        // 计算横向偏移量
-
-        if (isNeedShowUp) {
-            windowPos[0] = anchorLoc[0] - Math.abs(anchorWidth - windowWidth) / 2;
-            windowPos[1] = anchorLoc[1] - windowHeight;
-        } else {
-            windowPos[0] = anchorLoc[0] - Math.abs(anchorWidth - windowWidth) / 2;
-            windowPos[1] = anchorLoc[1] + anchorHeight;
-        }
-        return windowPos;
+        dialogView.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED);
+        final int anchorWidth = dialogView.getMeasuredWidth();
+        final int anchorHeight = dialogView.getMeasuredHeight();
+        showDialogXY[0] = anchorLoc[0] - anchorWidth;
+        showDialogXY[1] = anchorLoc[1] - Math.abs(anchorHeight - anchorLoc[1]) / 2;
+        return showDialogXY;
     }
 }
