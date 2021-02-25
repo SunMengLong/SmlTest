@@ -7,80 +7,98 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/util_but"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="工具类"
-        android:textAllCaps="false"></Button>
+        android:layout_height="wrap_content">
 
-    <Button
-        android:id="@+id/dialog_but"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Dialog"
-        android:textAllCaps="false"></Button>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    <Button
-        android:id="@+id/alpha_breath_but"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="呼吸动画"
-        android:textAllCaps="false"></Button>
+            <Button
+                android:id="@+id/util_but"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="工具类"
+                android:textAllCaps="false"></Button>
 
-    <Button
-        android:id="@+id/refrush_but"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="下拉刷新"
-        android:textAllCaps="false"></Button>
+            <Button
+                android:id="@+id/dialog_but"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Dialog"
+                android:textAllCaps="false"></Button>
 
-    <Button
-        android:id="@+id/apng_but"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="APng动图播放"
-        android:textAllCaps="false"></Button>
+            <Button
+                android:id="@+id/alpha_breath_but"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="呼吸动画"
+                android:textAllCaps="false"></Button>
 
-    <Button
-        android:id="@+id/sw_but"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="声网语音通话"
-        android:textAllCaps="false"></Button>
+            <Button
+                android:id="@+id/refrush_but"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="下拉刷新"
+                android:textAllCaps="false"></Button>
 
-    <Button
-        android:id="@+id/alert_window_but"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="全局弹框"
-        android:textAllCaps="false"></Button>
+            <Button
+                android:id="@+id/apng_but"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="APng动图播放"
+                android:textAllCaps="false"></Button>
 
-    <Button
-        android:id="@+id/notify_but"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="通知"
-        android:textAllCaps="false"></Button>
+            <Button
+                android:id="@+id/sw_but"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="声网语音通话"
+                android:textAllCaps="false"></Button>
 
-    <Button
-        android:id="@+id/bottom_sheet_behavior_state_but"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="BottomSheetBehavior"
-        android:textAllCaps="false"></Button>
+            <Button
+                android:id="@+id/alert_window_but"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="全局弹框"
+                android:textAllCaps="false"></Button>
 
-    <Button
-        android:id="@+id/at_friend_but"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="at好友"
-        android:textAllCaps="false"></Button>
+            <Button
+                android:id="@+id/notify_but"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="通知"
+                android:textAllCaps="false"></Button>
 
-    <Button
-        android:id="@+id/a_z_list_but"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="仿微信通讯录列表"
-        android:textAllCaps="false"></Button>
+            <Button
+                android:id="@+id/bottom_sheet_behavior_state_but"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="BottomSheetBehavior"
+                android:textAllCaps="false"></Button>
+
+            <Button
+                android:id="@+id/at_friend_but"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="at好友"
+                android:textAllCaps="false"></Button>
+
+            <Button
+                android:id="@+id/a_z_list_but"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="仿微信通讯录列表"
+                android:textAllCaps="false"></Button>
+
+            <Button
+                android:id="@+id/expanable_but"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="点击部分文字跳转的TextView"
+                android:textAllCaps="false"></Button>
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>

@@ -13,6 +13,7 @@ import com.sml.test.animator.AlphaBreathActivity;
 import com.sml.test.apng.APngActivity;
 import com.sml.test.bottomsheetbehavior.BottomSheetBehaviorActivity;
 import com.sml.test.edit.EditTextActivity;
+import com.sml.test.expandable.ExpandableActivity;
 import com.sml.test.notify.NotifyActivity;
 import com.sml.test.popup.AlertWindowActivity;
 import com.sml.test.popup.DialogActivity;
@@ -111,6 +112,14 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View v) {
                 Intent view = new Intent(MainActivity.this, AZListActivity.class);
+                startActivity(view);
+            }
+        });
+
+        findViewById(R.id.expanable_but).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent view = new Intent(MainActivity.this, ExpandableActivity.class);
                 startActivity(view);
             }
         });

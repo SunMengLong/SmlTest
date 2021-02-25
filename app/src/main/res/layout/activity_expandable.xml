@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".expandable.ExpandableActivity">
+
+    <com.sml.test.expandable.ExpandableTextView
+        android:id="@+id/tv_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        android:textColor="#000000"
+        android:textSize="16dp"
+        app:ep_contract_color="#000000"
+        app:ep_contract_text="收起"
+        app:ep_expand_color="#000fff"
+        app:ep_expand_text="全文"
+        app:ep_max_line="8"
+        app:ep_need_contract="true"
+        app:ep_need_expand="true" />
+
+</LinearLayout>

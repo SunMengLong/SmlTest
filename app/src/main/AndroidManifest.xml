@@ -24,7 +24,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".popup.DialogActivity"></activity>
+        <activity android:name=".expandable.ExpandableActivity"></activity>
+        <activity android:name=".popup.DialogActivity" />
         <activity android:name=".a_z.AZListActivity" />
         <activity android:name=".bottomsheetbehavior.BottomSheetBehaviorActivity" />
         <activity

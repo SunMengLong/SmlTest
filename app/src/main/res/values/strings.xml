@@ -2,4 +2,7 @@
     <string name="app_name">SmlTest</string>
     <string name="agora_app_id">5da94f94b9c34f4daf164478550ba1ee</string>
     <string name="agora_access_token">0065da94f94b9c34f4daf164478550ba1eeIACpJlO9u8F8r4SrDHyEFr1HAV70iMfOTcTq5QiDlniQwnDBvnwAAAAAEABID2Uq66y4XwEAAQDrrLhf</string>
+    <string name="social_contract">收起</string>
+    <string name="social_expend">展开</string>
+    <string name="social_text_target">网页链接</string>
 </resources>
