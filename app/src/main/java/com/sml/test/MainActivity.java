@@ -1,12 +1,17 @@
 package com.sml.test;
 
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import com.sml.test.a_z.AZListActivity;
 import com.sml.test.animator.AlphaBreathActivity;
@@ -19,6 +24,7 @@ import com.sml.test.popup.AlertWindowActivity;
 import com.sml.test.popup.DialogActivity;
 import com.sml.test.popup.PopupWindowActivity;
 import com.sml.test.refrush.ListRefrushActivity;
+import com.sml.test.sreenshot.SreenActivity;
 import com.sml.test.sw.SWActivity;
 import com.sml.test.util.UtilActivity;
 
@@ -32,6 +38,7 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initView();
+        checkSelfPermission(new String[]{Manifest.permission.RECORD_AUDIO,Manifest.permission.WRITE_EXTERNAL_STORAGE}, 0);
     }
 
     private void initView() {
@@ -123,5 +130,27 @@ public class MainActivity extends Activity {
                 startActivity(view);
             }
         });
+
+        findViewById(R.id.sreen_but).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent view = new Intent(MainActivity.this, SreenActivity.class);
+                startActivity(view);
+            }
+        });
+    }
+
+
+    public boolean checkSelfPermission(String[] permissions, int requestCode) {
+//        if (ContextCompat.checkSelfPermission(this,
+//                permission)
+//                != PackageManager.PERMISSION_GRANTED) {
+
+        ActivityCompat.requestPermissions(this,
+                permissions,
+                requestCode);
+//        return false;
+//        }
+        return true;
     }
 }

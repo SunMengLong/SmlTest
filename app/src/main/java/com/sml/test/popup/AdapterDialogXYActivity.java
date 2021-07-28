@@ -52,6 +52,8 @@ public class AdapterDialogXYActivity extends Activity {
         popupWindow.showAtLocation(butShowPopupwindow, Gravity.LEFT | Gravity.TOP, windowPos[0], windowPos[1]);
 //        popupWindow.showAtLocation(butShowPopupwindow, Gravity.LEFT | Gravity.TOP, 0, 0);
 // windowContentViewRoot是根布局View
+
+
     }
 
     /**

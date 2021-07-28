@@ -99,6 +99,13 @@
                 android:layout_height="wrap_content"
                 android:text="点击部分文字跳转的TextView"
                 android:textAllCaps="false"></Button>
+
+            <Button
+                android:id="@+id/sreen_but"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="截屏监听"
+                android:textAllCaps="false"></Button>
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

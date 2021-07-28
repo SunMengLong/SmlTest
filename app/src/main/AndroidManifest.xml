@@ -4,6 +4,7 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /> <!-- 声网 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> <!-- 声网 -->
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
@@ -24,7 +25,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".expandable.ExpandableActivity"></activity>
+        <activity android:name=".sreenshot.SreenActivity"></activity>
+        <activity android:name=".expandable.ExpandableActivity" />
         <activity android:name=".popup.DialogActivity" />
         <activity android:name=".a_z.AZListActivity" />
         <activity android:name=".bottomsheetbehavior.BottomSheetBehaviorActivity" />

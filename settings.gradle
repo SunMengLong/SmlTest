@@ -1,2 +1,4 @@
+include ':myjisq'
 include ':greendao'
 include ':app'
+include ':noviceGuide'
